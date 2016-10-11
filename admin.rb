@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
+$sublim_path = "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl "
+
 class String    # colorization
   
   def colorize(color_code)
@@ -72,7 +74,7 @@ while (1)
 	elsif input.partition(" ").first == "ls"
 		system "ls -G " + file + " " + path
 	elsif input.partition(" ").first == "edit" and File.exist?(path + file) == true
-		system "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl " + path  +  file 
+		system $sublim_path + path  +  file 
 	elsif input.partition(" ").first == "cat" and File.exist?(path + file) == true
 		system "cat " + path + file
 	elsif input == "status"

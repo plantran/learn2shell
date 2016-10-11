@@ -4,6 +4,7 @@
 require 'curses'
 include Curses
 
+$sublim_path = "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl "
 
 class String    # colorization
   
@@ -173,8 +174,7 @@ def debut_edit()
 	print "-> ".bold.green
 	user = STDIN.gets.chomp
 		if user == "edit mon_ordinateur"
-			system "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl  mon_ordinateur"
-			#system "/opt/sublime_text/sublime_text mon_ordinateur"
+			system $sublim_path + "mon_ordinateur"
 			file = File.new("mon_ordinateur", "r")
 			if file.gets == "OK"
 				return
@@ -268,13 +268,10 @@ def part2_notes(name)
 		if input != ""
 			file = input.split(' ')[1..-1].join(' ')
 		end
-		# if input and input.partition(" ").first == "cd" and  file != file.downcase and File.exist?(file) == true
-		# 	Dir.chdir input.split(' ')[1..-1].join(' ')
 		if input == "ls"
 			system "ls -G"
 		elsif input and input.partition(" ").first == "edit" and  file != file.downcase and File.exist?(file) == true and File.directory?(file) == false
-			system "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl " + "\"" + file + "\""
-			#system "/opt/sublime_text/sublime_text " + "\"" + file + "\""
+			system $sublim_path + "\"" + file + "\""
 		elsif input == "finish"
 			return ;
 		else
@@ -314,8 +311,7 @@ def part2_last()
 		elsif input == "ls"
 			system "ls -G"
 		elsif input.partition(" ").first == "edit" and file == "bulletin.txt"
-			system "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl  " + "bulletin.txt"
-			#system "/opt/sublime_text/sublime_text " + "BULLETIN.txt"
+			system $sublim_path + "bulletin.txt"
 			return
 		else
 			puts "Tu dois aller dans le dossier BULLETIN et modifier le fichier " +  "bulletin.txt".underline + " !"
@@ -404,7 +400,7 @@ end
 def admin_check(abs_path)
 	print "Entrez le mot de passe pour la session admin".underline + " : "
 	input = STDIN.gets.chomp
-	if (input == "kbd%fr7#1")
+	if (input == "kbdr7#1")
 		system abs_path + "admin.rb " + abs_path
 	else
 		puts "Mauvais mot de passe."
@@ -446,14 +442,6 @@ def main_boucle(name, abs_path)
 			else
 				Dir.chdir ".."
 			end
-		#elsif input.partition(" ").first == "ls" and  file != file.downcase and File.exist?(file) == true
-		#	system "ls -G " + "\"" + file + "\""
-		#elsif input == "ls"
-		#	system "ls -G"
-		#elsif input == "ls -a"
-		#	system "ls -a -G "
-		#elsif input == "ls -la"
-		#	system "ls -la -G"
 		elsif input.partition(" ").first == "ls"
 			system "ls -G " + file
 			
@@ -463,11 +451,7 @@ def main_boucle(name, abs_path)
 			elsif file == ".passwd"
 					puts "Vous n'avez pas l'autorisation."
 			else
-				system "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl " + "\"" + file + "\""
-				#system "/opt/sublime_text/sublime_text " + "\"" + file + "\""
-				#if file == "nouveau_mdp.txt"
-				#	change_mdp(abs_path)
-				#end
+				system $sublim_path + "\"" + file + "\""
 			end
 		elsif input == "pwd"
 			new_path = Dir.getwd.sub abs_path, ""
@@ -493,7 +477,7 @@ def main_boucle(name, abs_path)
 		elsif input.partition(" ").first == "chmod"
 			system "chmod " + file
 		elsif input.partition(" ").first == "mail" and file != ""
-			system "mail " + file + "-c paula.lantran@gmail.com"
+			system "mail " + file
 		else
 			puts "La commande a mal été formulée."
 		end
@@ -514,17 +498,9 @@ puts "	-> Tape la commande \"aide\" pour voir la liste de toutes les commandes e
 main_boucle(name, abs_path)
 end
 
-
-
-#Dir.chdir "ECOLE"
-#load "toto.rb"
-#exit
 reset_sonnerie()
 matieres = ["Maths", "Francais", "Histoire-Geographie", "Sport", "Arts-plastiques", "Musique", "LV1", "LV2", "SVT"]
 abs_path = Dir.pwd + "/"
-#Dir.chdir "/home/paulette/Documents/startup4kids/ECOLE"
-#Dir.chdir "/nfs/zfs-student-3/users/event/event19/startup4kids"
-#part3("Paula L", abs_path)
 system "./create_all.rb"
 Dir.chdir "ECOLE"
 nom_user = debut()

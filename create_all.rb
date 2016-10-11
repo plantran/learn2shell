@@ -34,7 +34,7 @@ system "mkdir -p ECOLE/SECURITE/UTILISATEURS"
 system "mkdir -p ECOLE/SECURITE/\"MOTS_DE_PASSE\""
 system "mkdir -p ECOLE/ADMIN"
 system "touch ECOLE/ADMIN/.passwd"
-system "echo \"kbd%fr7\$v23#1\" > ECOLE/ADMIN/.passwd"
+system "printf \"kbdr7\$v23#1\" > ECOLE/ADMIN/.passwd"
 system "chmod 000 ECOLE/ADMIN/.passwd"
 
 i = 0
