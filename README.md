@@ -26,9 +26,3 @@ Certaines choses peuvent ne pas être évidentes à première vue, mais sont ré
 ## The Author : ##
 
 This game was created and developped by Paula Lantran in 2015. 
-
-
-
-
-
-Reste a faire fichier aide, trouver autres idees, gere ls (je me comprends), message d'accueil pour free party
