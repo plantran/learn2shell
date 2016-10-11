@@ -363,7 +363,6 @@ end
 def ask_mdp(file)
 	print "Entrez le mot de passe pour entrer dans le dossier".underline + " :"
 	input = STDIN.gets.chomp
-	#name = "." + file.partition(" ").first + "_" + file.partition(" ").last + ".txt"
 	name = "." + file + ".txt"
 	mdp = "../MOTS_DE_PASSE/" + name
 	f = File.open(mdp, "r")
@@ -371,10 +370,10 @@ def ask_mdp(file)
 	if ac_mdp == input
 		Dir.chdir file
 		puts "Bienvenue " + file + " !"
-		return 0
+		return 1
 	else
 		puts "ERREUR : Mauvais mot de passe !"
-		return 0
+		return 1
 	end
 end
 
@@ -479,7 +478,9 @@ def main_boucle(name, abs_path)
 		elsif input.partition(" ").first == "mail" and file != ""
 			system "mail " + file
 		else
-			puts "La commande a mal été formulée."
+			if fl == 0
+				puts "La commande a mal été formulée."
+			end
 		end
 		fl = 0
 	end
