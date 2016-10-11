@@ -1,5 +1,15 @@
 # README #
 
+## Projet : ##
+
+Ce projet a vu le jour en 2015, pour le salon "StarUp for Kids" à l'école 42. Nous devions, étudiants de l'école, créer un atelier afin d'initier des jeunes de primaire et du collège au code.
+
+## But du mini-jeu : ##
+
+
+
+
+
 Pour faire fonctionner le script : lancer launch.rb 
 
 Modifications pour LINUX : 
