@@ -29,7 +29,9 @@ Ce jeu a été conçu tout en gardant à l'esprit que l'enfant serait accompagn�
 Certaines choses peuvent ne pas être évidentes à première vue, mais sont réalisable.
 
 
+## The Author : ##
 
+This game was created and developped by Paula Lantran in 2015. 
 
 
 
