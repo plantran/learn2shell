@@ -6,9 +6,9 @@ Ce projet a vu le jour en 2015, pour le salon "StarUp for Kids" à l'école 42. 
 
 ## But du mini-jeu : ##
 
+L'utilisateur incarne un collégien qui pirate le système informatique de son école. N'utilisant que le SHELL pour naviguer dans les différents dossiers , il devra utiliser des commandes afin de pouvoir s'en sortir.
 
-
-
+## Utilisation : ##
 
 Pour faire fonctionner le script : lancer launch.rb 
 
