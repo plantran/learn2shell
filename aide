@@ -1,0 +1,111 @@
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |  C:\> _            AIDE                     |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+
+Bonjour et bienvenue dans l'aide du systeme informatique du College.
+
+Nous vous proposons un recapitulatif de tout ce que vous pouvez faire.
+
+Pour quitter, appuyez sur la touche 'q'.
+
+I / LES COMMANDES
+
+	Utilisation des commandes :
+
+			 ==================================================================
+			|      commande + paramètre1 + ...(paramètre2 + paramètre3)...    |
+			 ==================================================================
+
+
+	-> cat : affiche sur le terminal le contenu du fichier passé en paramètre.
+
+	-> touch : créé un fichier vide. Le nom est précisé en paramètre.
+
+	-> mkdir : créé un dossier vide. Le nom est précisé en paramètre.
+
+	-> pwd : affiche le chemin complet du répertoire en cours d'utilisation.
+
+	-> ls : affiche l'ensemble des fichiers contenus dans le répertoire indiqué.
+
+		* Si l'option "-a" est donnée en paramètre, tous les fichiers du repertoire
+			indiqué vont s'affichier, ainsi que les fichies et dossiers cachés.
+
+	-> cd : change le répertoire en cours d'utilisation pour aller dans le
+			repertoire passé en paramètre.
+
+		* Si le chemin ".." est donné en paramètre, le nouveau répertoire
+			sera le repertoire parent (le repertoire précédent).
+
+	-> edit : ouvre l'éditeur de texte pour permettre la modification du
+				fichier passé en paramètre.
+
+		* Pour enregistrer, il faut faire Commande + 'S'
+
+	-> ecole : change le répertoire en cours d'utilisation pour aller à la racine,
+			au dossier "ECOLE".
+
+	-> admin : permet d'acceder à l'espace sécurisé administrateur.
+
+	-> cp : copie la SOURCE vers la CIBLE.
+
+		* Utilisation : cp [options] SOURCE CIBLE
+
+		* Si l'option "-r" est donnée, permet de copier un dossier.
+
+	-> rm : supprime le fichier passé en paramètre.
+
+		* Si l'option "-r" est donnée, permet la suppression d'un répertoire.
+
+	-> aide : ouvre le centre d'aide.
+
+	-> chmod : modifie les permissions d'accès du fichier indiqué.
+
+		* Si l'option "+r" est donnée, donne les droits de lecture du fichier.
+
+	-> mail : envoie un email au destinataire spécifié en paramètre
+
+      * Après avoir terminé le message, appuyez sur control + 'D' pour quitter.
+
+
+II / CE QU'IL EST POSSIBLE DE FAIRE
+
+	
+	Maintenant que vous vous êtes identifié, vous avez la possibilité de faire plusieurs choses.
+
+	-> Vous pouvez changer la moyenne de la matière que vous enseignez pour chaque élève
+		ainsi que l'appréciation sur le bulletin.
+	-> Vous pouvez changer l'emploie du temps des élèves.
+	-> Si un nouvel élève arrive dans votre classe, il est impératif de créer un dossier à son
+		nom dans la parties "ELEVES".
+	-> Vous pouvez ajouter ou supprimer des heures de colle. Attention, n'oubliez pas d'envoyer
+		un e-mail au CPE pour toute modification et justifier l'ajout ou le retrait d'une heure de colle (cpe@ecole.fr) !
+	-> Vous trouverez dans la section SECURITE, votre dossier personnel. Vous disposerez ici les
+		sujets de vos contrôles. Votre dossier est protégé par un mot de passe, pour que les élèves
+		ne puissent pas les copier dans leur dossier personnel !
+		Vous aurez également la possibilité de changer votre mot de passe !

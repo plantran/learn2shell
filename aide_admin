@@ -1,0 +1,79 @@
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |  C:\> _            AIDE ADMIN               |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+
+
+
+
+Bonjour et bienvenue dans l'aide de la partie ADMINISTRATION du systeme informatique du College.
+
+Nous vous proposons un recapitulatif de tout ce que vous pouvez faire.
+
+Pour quitter, appuyez sur la touche 'q'.
+
+
+
+I / LES COMMANDES
+
+  Utilisation des commandes :
+
+       ==================================================================
+      |      commande + paramètre1 + ...(paramètre2 + paramètre3)...    |
+       ==================================================================
+
+  -> cat : affiche sur le terminal le contenu du fichier passé en paramètre.
+
+  -> ls : affiche l'ensemble des fichiers contenus dans le répertoire indiqué.
+
+    * Si l'option "-a" est donnée en paramètre, tous les fichiers du repertoire
+    indiqué vont s'affichier, ainsi que les fichies et dossiers cachés.
+
+  -> edit : ouvre l'éditeur de texte pour permettre la modification du
+        fichier passé en paramètre.
+
+    * Pour enregistrer, il faut faire Commande + 'S'
+
+  -> aide : ouvre le centre d'aide.
+
+  -> mail : envoie un email au destinataire spécifié en paramètre
+
+      * Après avoir terminé le message, appuyez sur control + 'D' pour quitter.
+
+  -> status : affiche le statut des sonneries
+
+  -> exit : ferme la session administrateur
+
+
+II / CE QU'IL EST POSSIBLE DE FAIRE
+
+
+  -> Cette session ADMINISTRATION est utilisée pour envoyer des e-mails aux professeurs 
+    afin de les prévenir si un cours est annulé.
+
+  -> Il est possible de modifier la fréquence de la sonnerie des cours ainsi que la musique utilisée pour
+    celle-ci. Il est également possible de modifier la fréquence de l'alarme incendie.
