@@ -1,13 +1,16 @@
 # README #
 
-## Projet : ##
+## Project : ##
 
-Ce projet a vu le jour en 2015, pour le salon "StarUp for Kids" à l'école 42. Nous devions, étudiants de l'école, créer un atelier afin d'initier des jeunes de primaire et du collège au code.
-Ce fut l'occasion pour moi d'apprendre un nouveau langage et de m'initier à l'univers de la pédagogie.
+This project was born in 2015 for the event “StartUp for Kids” which took place in the 42 school. 
+They asked for some students to create games in order to teach children how to code. 
+It was an opportunity for me to learn a new language. 
+It also gave me a first approach of pedagogy for children.
 
-## But du mini-jeu : ##
+## Minigame goal : ##
 
-L'utilisateur incarne un collégien qui pirate le système informatique de son école. N'utilisant que le SHELL pour naviguer dans les différents dossiers , il devra utiliser des commandes afin de pouvoir s'en sortir.
+The user plays a student who hacks the IT system of his / her school. 
+Using only Shell to navigate between the different folders, the student will have to learn how to use the basics shell commands in order to play the game. 
 
 ## Utilisation : ##
 
@@ -19,8 +22,7 @@ L'utilisateur incarne un collégien qui pirate le système informatique de son �
 
 ## Notes : ##
 
-Ce jeu a été conçu tout en gardant à l'esprit que l'enfant serait accompagné pendant toute la partie pour le guider.
-Certaines choses peuvent ne pas être évidentes à première vue, mais sont réalisable.
+Keep in mind that this game was created knowing that a student of 42 would help the child during the progress. Some things may not be easy to understand at first, but with some time, everything is doable! 
 
 
 ## The Author : ##
