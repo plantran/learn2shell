@@ -4,7 +4,7 @@
 require 'curses'
 include Curses
 
-$sublim_path = "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl "
+$EDITOR_PATH = "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl "
 
 class String    # colorization
   
@@ -37,7 +37,7 @@ system "clear"
 
 if a == 0
 puts "            ____________________________________________________  					"
-puts "           /                                                    \\						"	
+puts "           /                                                    \\						"
 puts "          |    _____________________________________________     |                   	"
 puts "          |   |                                             |    | 					"
 puts "          |   |  C:\\\> _ " + "ACCES REFUSÉ".bold.red + "                        |    |                   	"
@@ -56,7 +56,7 @@ puts "          |   |_____________________________________________|    |        
 puts "          |                                                      |                   	"
 puts "           \\_____________________________________________________/                   	"
 puts "                  \\\_______________________________________/                   		"
-puts "               _______________________________________________                   		"	
+puts "               _______________________________________________                   		"
 puts "            _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_                   	"
 puts "         _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_                   "
 puts "      _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_                   	"
@@ -68,7 +68,7 @@ end
 if a == 1
 
 puts "            ____________________________________________________  					"
-puts "           /                                                    \\						"	
+puts "           /                                                    \\						"
 puts "          |    _____________________________________________     |                   	"
 puts "          |   |                                             |    | 					"
 puts "          |   |  C:\\\> _ " + "ACCES AUTORISÉ".bold.green + "                      |    |                   	"
@@ -87,7 +87,7 @@ puts "          |   |_____________________________________________|    |        
 puts "          |                                                      |                   	"
 puts "           \\_____________________________________________________/                   	"
 puts "                  \\\_______________________________________/                   		"
-puts "               _______________________________________________                   		"	
+puts "               _______________________________________________                   		"
 puts "            _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_                   	"
 puts "         _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_                   "
 puts "      _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_                   	"
@@ -174,7 +174,7 @@ def debut_edit()
 	print "-> ".bold.green
 	user = STDIN.gets.chomp
 		if user == "edit mon_ordinateur"
-			system $sublim_path + "mon_ordinateur"
+			system $EDITOR_PATH + "mon_ordinateur"
 			file = File.new("mon_ordinateur", "r")
 			if file.gets == "OK"
 				return
@@ -188,7 +188,7 @@ end
 
 # ------------------ FONCTION PREMIERE PARTIE CONNECTION A L'ECOLE ------------------------
 def debut()
-ascii_art(0) 
+ascii_art(0)
 puts "	Bonjour, je suis le système de surveillance de l'école.\n\tPouvez-vous vous identifier ?"
 puts ""
 puts ">> RENTRE ICI TON PRENOM ET TON NOM DE FAMILLE. QUAND TU AS FINI APPUIE SUR LA TOUCHE ".bold.blue + "ENTREE".bold.blue.underline + " <<\n".bold.blue
@@ -234,7 +234,7 @@ while (1)
 	if STDIN.gets == "\n"
 		return nom_user
 	end
-end	
+end
 return nom_user
 end
 
@@ -271,7 +271,7 @@ def part2_notes(name)
 		if input == "ls"
 			system "ls -G"
 		elsif input and input.partition(" ").first == "edit" and  file != file.downcase and File.exist?(file) == true and File.directory?(file) == false
-			system $sublim_path + "\"" + file + "\""
+			system $EDITOR_PATH + "\"" + file + "\""
 		elsif input == "finish"
 			return ;
 		else
@@ -311,7 +311,7 @@ def part2_last()
 		elsif input == "ls"
 			system "ls -G"
 		elsif input.partition(" ").first == "edit" and file == "bulletin.txt"
-			system $sublim_path + "bulletin.txt"
+			system $EDITOR_PATH + "bulletin.txt"
 			return
 		else
 			puts "Tu dois aller dans le dossier BULLETIN et modifier le fichier " +  "bulletin.txt".underline + " !"
@@ -443,14 +443,14 @@ def main_boucle(name, abs_path)
 			end
 		elsif input.partition(" ").first == "ls"
 			system "ls -G " + file
-			
+
 		elsif input.partition(" ").first == "edit" and  File.exist?(file) == true and extension != "controle" and File.directory?(file) == false
 			if File.basename(Dir.getwd) == "MOTS_DE_PASSE"
 				puts "Erreur: Vous n'avez pas l'autorisation de modifier directement les mots de passe !"
 			elsif file == ".passwd"
 					puts "Vous n'avez pas l'autorisation."
 			else
-				system $sublim_path + "\"" + file + "\""
+				system $EDITOR_PATH + "\"" + file + "\""
 			end
 		elsif input == "pwd"
 			new_path = Dir.getwd.sub abs_path, ""
@@ -459,7 +459,7 @@ def main_boucle(name, abs_path)
 			Dir.chdir abs_path + "ECOLE"
 		elsif input == "aide"
 			system "less " + abs_path + "/aide"
-		elsif input.partition(" ").first == "cat" and  File.exist?(file) == true 
+		elsif input.partition(" ").first == "cat" and  File.exist?(file) == true
 			system "cat " + file
 			puts ""
 		elsif input.partition(" ").first == "rm" and File.exist?(file) == true
