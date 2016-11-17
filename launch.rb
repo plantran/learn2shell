@@ -1,13 +1,10 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-require 'curses'
-include Curses
-
 $EDITOR_PATH = "/Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl "
 
 class String    # colorization
-  
+
   def colorize(color_code)
     "\e[#{color_code}m#{self}\e[0m"
   end
