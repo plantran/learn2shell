@@ -70,7 +70,7 @@ while (1)
 		sleep (2)
 		exit
 	elsif input.partition(" ").first == "mail" and file != ""
-		system "mail " + file + "-c paula.lantran@gmail.com"
+		system "mail " + file
 	elsif input.partition(" ").first == "ls"
 		system "ls -G " + file + " " + path
 	elsif input.partition(" ").first == "edit" and File.exist?(path + file) == true
