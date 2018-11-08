@@ -140,6 +140,9 @@ end
 
 def display_prompt() # AFFICHAGE DU PROMPT
 
+trap "SIGINT" do
+	puts "Appuies sur ENTREE pour pouvoir réutiliser le programme"
+end
 dirname = File.basename(Dir.getwd)
 print "Répertoire actuel:".green.bold.underline + " " + dirname.red.bold + " -> ".green.bold
 end
@@ -185,6 +188,9 @@ end
 
 # ------------------ FONCTION PREMIERE PARTIE CONNECTION A L'ECOLE ------------------------
 def debut()
+trap "SIGINT" do
+	puts "Appuies sur ENTREE pour pouvoir réutiliser le programme"
+end
 ascii_art(0)
 puts "	Bonjour, je suis le système de surveillance de l'école.\n\tPouvez-vous vous identifier ?"
 puts ""
