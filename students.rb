@@ -19,6 +19,7 @@ class Students
 
   private
 
+  # Gets students from the .csv file and converts the data to a hash.
   def fetch_students
     @students = []
     CSV.foreach('data/students_info.csv', headers: true, col_sep: ',') do |row|
@@ -26,6 +27,7 @@ class Students
     end
   end
 
+  # Creates timetables ('emploi du temps') files for each student.
   def create_students_timetable
     @students.each do |student|
       name = student[:name].split(' ').map(&:downcase).join('_')
@@ -35,6 +37,7 @@ class Students
     end
   end
 
+  # Creates a detention file for each students with detention hours.
   def create_detentions
     @students.each do |student|
       next if student[:detention].to_i.zero?
@@ -45,6 +48,7 @@ class Students
     end
   end
 
+  # Generates and saves school reports file for each student.
   def create_school_reports
     @students.each do |student|
       SchoolReport.new(student)

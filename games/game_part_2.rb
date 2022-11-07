@@ -5,7 +5,6 @@ module Games
     def initialize(name)
       @name = name
       @name_slugged = @name.split(' ').map(&:downcase).join('_')
-      @ascii_autorized = Asciiartor.new(:computer_authorized)
       ls_game
       cd_game
       cd_own_dir_game
@@ -97,7 +96,7 @@ module Games
     end
 
     def output_ls_game_texts
-      @ascii_autorized.display
+      Asciiartor.access_authorized
       txt = <<~TXT.bold.blue
         \t>> BRAVO, TU AS RÉUSSI À T'INFILTRER DANS LE SYSTÈME INFORMATIQUE DE TON ÉCOLE !\n\tCOMMENÇONS PAR VOIR CE QU'IL Y A À L'INTÉRIEUR !<<
       TXT
@@ -108,7 +107,7 @@ module Games
     end
 
     def output_cd_own_dir_game_texts
-      @ascii_autorized.display
+      Asciiartor.access_authorized
       txt = <<~TXT.bold.blue
         \t>> REGARDE TOUS LES ÉLÈVES QU'IL Y A ! CHERCHE TON DOSSIER AVEC TON NOM ET VA DEDANS ! <<
       TXT
@@ -121,7 +120,7 @@ module Games
     end
 
     def output_change_notes_game_texts
-      @ascii_autorized.display
+      Asciiartor.access_authorized
       txt = <<~TXT.bold.blue
         \t>> TRES BIEN, MAINTENANT QUE TU ES DANS TON DOSSIER, REGARDE TOUS LES FICHIERS QU'IL Y A. \
         CE SONT TOUTES LES MATIERES QUE TU AS, DEDANS, IL Y A TA NOTE. A TOI DE JOUER POUR MODIFIER CES \

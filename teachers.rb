@@ -11,6 +11,7 @@ class Teachers
 
   private
 
+  # Gets teachers from the .csv file and converts the data to a hash.
   def fetch_teachers
     @teachers = []
     CSV.foreach('data/teachers_info.csv', headers: true, col_sep: ',') do |row|
@@ -19,6 +20,7 @@ class Teachers
     end
   end
 
+  # Creates a hidden password file for each teacher.
   def create_teachers_passwords
     @teachers.each do |teacher|
       first_name, last_name = teacher[:name].split(' ').map(&:downcase)
@@ -27,6 +29,7 @@ class Teachers
     end
   end
 
+  # Create a directory with a file for each teacher.
   def create_teachers_users
     @teachers.each do |teacher|
       first_name, last_name = teacher[:name].split(' ').map(&:downcase)
@@ -36,6 +39,7 @@ class Teachers
     end
   end
 
+  # Creates a test subject file (a 'contrôle') for teachers.
   def create_tests
     @teachers.each do |teacher|
       next unless teacher[:test_path]

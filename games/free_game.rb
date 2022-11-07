@@ -3,7 +3,6 @@ module Games
     include CustomSystem
 
     def initialize
-      @ascii_autorized = Asciiartor.new(:computer_authorized)
       display_welcome_screen
       start_prompt
     end
@@ -22,7 +21,7 @@ module Games
     end
 
     def display_welcome_screen
-      @ascii_autorized.display
+      Asciiartor.access_authorized
       puts "\t>> VOILA, MAINTENTANT TU AS LES BASES, À TOI DE JOUER ! <<\n".bold.blue
       puts <<~TXT.yellow.italic
         \t-> Tape la commande "aide" pour voir la liste de toutes les commandes et voir tout ce que tu peux faire !

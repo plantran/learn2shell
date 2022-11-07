@@ -3,6 +3,7 @@ module InitGame
   require_relative 'teachers'
   require_relative 'students'
 
+  # Generates all mandatory base files for the game.
   def self.init_game_all(force_reset: false)
     init_files_and_dirs(force_reset)
     t = Teachers.new
@@ -12,6 +13,7 @@ module InitGame
     Dir.chdir('ECOLE')
   end
 
+  # Generates all mandatory directories and files for the game.
   def self.init_files_and_dirs(force_reset)
     system('rm -rf ECOLE') if force_reset
     dirs = ['ECOLE', 'ECOLE/ELEVES', 'ECOLE/VIE_SCOLAIRE/HEURES_DE_COLLE', 'ECOLE/SECURITE/UTILISATEURS',

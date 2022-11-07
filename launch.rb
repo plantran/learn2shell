@@ -10,33 +10,6 @@ def reset_sonnerie
 end
 
 
-# def display_prompt() # AFFICHAGE DU PROMPT
-# 	trap "SIGINT" do
-# 		puts "Appuies sur ENTREE pour pouvoir réutiliser le programme"
-# 	end
-# 	dirname = File.basename(Dir.getwd)
-# 	print "Répertoire actuel:".green.bold.underline + " " + dirname.red.bold + " -> ".green.bold
-# end
-
-
-# def ask_mdp(file)
-# 	print "Entrez le mot de passe pour entrer dans le dossier".underline + " :"
-# 	input = STDIN.gets.chomp
-# 	name = "." + file + ".txt"
-# 	mdp = "../MOTS_DE_PASSE/" + name
-# 	f = File.open(mdp, "r")
-# 	ac_mdp = f.gets
-# 	if ac_mdp == input
-# 		Dir.chdir file
-# 		puts "Bienvenue " + file + " !"
-# 		return 1
-# 	else
-# 		puts "ERREUR : Mauvais mot de passe !"
-# 		return 1
-# 	end
-# end
-
-
 def change_mdp(abs_path)
 	Dir.foreach(abs_path + "ECOLE/SECURITE/UTILISATEURS") do |name|
 		next if name == '.' or name == '..'
@@ -88,21 +61,6 @@ def main_boucle(name, abs_path)
 			extension = file.partition(".").last
 		end
 
-		# if File.basename(Dir.getwd) == "UTILISATEURS" and input.partition(" ").first == "cd"
-		# 	if input.partition(" ").first == "cd" and  File.exist?(file) == true and file != ".." and file != "../"
-		# 		fl = ask_mdp(file)
-		# 	end
-		# end
-		# if input.partition(" ").first == "cd" and File.exist?(file) == true and File.basename(Dir.getwd) != "UTILISATEURS" and File.directory?(file) == true and file != ".."
-				# Dir.chdir file
-		# elsif input.partition(" ").first == "cd" and file == ".."
-			# if File.basename(Dir.getwd) == "ECOLE"
-				# puts "Attention, tu ne peux pas aller plus loin, il faut que tu restes dans le dossier ECOLE et les dossiers qu'il y a dedans !"
-			# else
-				# Dir.chdir ".."
-			# end
-
-
 		elsif input.partition(" ").first == "edit" and  File.exist?(file) == true and extension != "controle" and File.directory?(file) == false
 			if File.basename(Dir.getwd) == "MOTS_DE_PASSE"
 				puts "Erreur: Vous n'avez pas l'autorisation de modifier directement les mots de passe !"
@@ -121,7 +79,6 @@ end
 
 
 def part3(name, abs_path)
-	ENV['HOME'] = abs_path +  "ECOLE"
 	main_boucle(name, abs_path)
 end
 

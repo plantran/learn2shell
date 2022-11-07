@@ -6,19 +6,20 @@ class Game
   Dir["#{__dir__}/games/*.rb"].each { |file| require file }
 
   include CustomSystem
+  include Asciiartor
 
   def initialize
-    @ascii_denied = Asciiartor.new(:computer_denied)
     welcome_new_user
     Games::GameIntro.new(@name)
     Students.new.init_for_one(@name)
     Games::GamePart2.new(@name)
+    Games::FreeGame.new
   end
 
   private
 
   def welcome_new_user
-    @ascii_denied.display
+    Asciiartor.access_denied
     txt = <<~TXT
         \tBonjour, je suis le système de surveillance de l'école.
                 Pouvez-vous vous identifier ?

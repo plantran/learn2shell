@@ -5,7 +5,6 @@ module Games
 
     def initialize(name)
       @name = name
-      @ascii_denied = Asciiartor.new(:computer_denied)
       welcome_screen
       first_part
       second_part
@@ -15,7 +14,7 @@ module Games
     private
 
     def welcome_screen
-      @ascii_denied.display
+      Asciiartor.access_denied
       puts "\t... Hmm, je ne connais pas ce nom ..."
       sleep(2)
       puts "\t... Je vais vérifier si votre ordinateur est bien enregistré dans notre base de données..."
@@ -48,7 +47,7 @@ module Games
     end
 
     def second_part
-      @ascii_denied.display
+      Asciiartor.access_denied
       txt = ">> IL FAUT MAINTENANT AJOUTER TON ADRESSE IP DANS CE FICHIER ! <<\n".blue.bold
       txt += <<~TXT.blue.italic
         💡   -> Une adresse IP est l'adresse virtuelle de ton ordinateur. Elle est unique et chaque ordinateur en possède une différente !
@@ -64,20 +63,22 @@ module Games
     def first_part_edit_file_exo
       loop do
         user_input = prompt_and_user_input
-        # TODO: Add random ip in file
-        return if user_input == 'my_ip > mon_ordinateur'
+        if user_input == 'my_ip > mon_ordinateur'
+          system("echo '205.7.107.19' > mon_ordinateur")
+          return
+        end
 
         puts "Tu dois ajouter ton adresse IP avec la commande #{'my_ip > mon_ordinateur'.underline} puis appuyer sur la touche ENTRÉE.\n"
       end
     end
 
     def last_part
-      @ascii_denied.display
+      Asciiartor.access_denied
       2.times do
         puts ' ...'
         sleep(1)
       end
-      Asciiartor.new(:access_authorized_welcome).display(with_clear: false)
+      Asciiartor.access_authorized_welcome
       puts <<~TXT
         Bonjour #{@name} et bienvenue dans le système de informatique de l'école.\n Appuie sur #{'ENTRÉE'.underline} pour continuer !
       TXT
