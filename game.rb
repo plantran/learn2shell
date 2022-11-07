@@ -1,15 +1,18 @@
 class Game
   require_relative 'outputer'
+  require_relative 'custom_system'
   require_relative 'asciiartor'
-  # TODO: Require multiple and add inside folder
-  require_relative 'game_intro'
+  require_relative 'students'
+  Dir["#{__dir__}/games/*.rb"].each { |file| require file }
+
+  include CustomSystem
 
   def initialize
     @ascii_denied = Asciiartor.new(:computer_denied)
-    @ascii_autorized = Asciiartor.new(:computer_authorized)
-    @ascii_autorized_welcome = Asciiartor.new(:access_authorized_welcome)
     welcome_new_user
-    GameIntro.new(@name)
+    Games::GameIntro.new(@name)
+    Students.new.init_for_one(@name)
+    Games::GamePart2.new(@name)
   end
 
   private
@@ -29,8 +32,7 @@ class Game
 
   def fetch_name
     loop do
-      print '-> '.bold.green
-      @name = $stdin.gets.chomp&.strip
+      @name = prompt_and_user_input(downcased: false)
       break unless @name.empty? || @name.split.size != 2
 
       puts "Tu dois rentrer tom prénom #{'ET'.underline} ton nom de famille."

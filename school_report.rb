@@ -84,8 +84,7 @@ class SchoolReport
   end
 
   def save_report(report_text)
-    bulletin_path = "#{ENV['STUDENTS_PATH']}/#{@name}/BULLETIN"
-    system "mkdir -p #{bulletin_path}"
+    bulletin_path = "#{__dir__}/#{ENV['STUDENTS_PATH']}/#{@name}"
     File.open("#{bulletin_path}/bulletin.txt", 'w') { |f| f.write(report_text) }
   end
 end
