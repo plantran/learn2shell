@@ -492,14 +492,14 @@ end
 
 
 def part3(name, abs_path)
-ascii_art(1)
-puts "	>> QUAND TU AURAS FINI DE TOUT MODIFIER, tape la commande ".bold.blue + "ecole".bold.blue.underline + " ! <<\n".bold.blue
-ENV['HOME'] = abs_path +  "ECOLE"
-part3_b1()
-ascii_art(1)
-puts "\n	>> VOILA, MAINTENTANT TU AS LES BASES, À TOI DE JOUER ! <<\n".bold.blue
-puts "	-> Tape la commande \"aide\" pour voir la liste de toutes les commandes et voir tout ce que tu peux faire !\n".yellow.italic
-main_boucle(name, abs_path)
+	ascii_art(1)
+	puts "	>> QUAND TU AURAS FINI DE TOUT MODIFIER, tape la commande ".bold.blue + "ecole".bold.blue.underline + " ! <<\n".bold.blue
+	ENV['HOME'] = abs_path +  "ECOLE"
+	part3_b1()
+	ascii_art(1)
+	puts "\n	>> VOILA, MAINTENTANT TU AS LES BASES, À TOI DE JOUER ! <<\n".bold.blue
+	puts "	-> Tape la commande \"aide\" pour voir la liste de toutes les commandes et voir tout ce que tu peux faire !\n".yellow.italic
+	main_boucle(name, abs_path)
 end
 
 reset_sonnerie()
