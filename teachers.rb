@@ -23,7 +23,7 @@ class Teachers
     @teachers.each do |teacher|
       first_name, last_name = teacher[:name].split(' ').map(&:downcase)
       dir_mdp = "#{ENV['PASSWORD_PATH']}/.#{first_name}_#{last_name}.txt"
-      File.open(dir_mdp, 'w') { |f| f.write(teacher[:password]) }
+      File.open(dir_mdp, 'w') { |f| f.puts(teacher[:password]) }
     end
   end
 

@@ -1,3 +1,4 @@
+# TODO: Make Singleton!
 class Asciiartor
   require_relative 'outputer'
 

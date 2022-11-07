@@ -65,6 +65,7 @@ module Games
         when 'ls'
           system('ls -G')
         when 'finish'
+          Dir.chdir("#{__dir__}/../ECOLE")
           return
         else
           puts "Tu peux changer tes notes en éditant le fichier ! Quand tu as fini, tapes la commande #{'finish'.underline} !"

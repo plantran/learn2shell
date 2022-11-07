@@ -39,7 +39,6 @@ module Games
       loop do
         user_input = prompt_and_user_input
         if user_input == 'touch mon_ordinateur'
-          # TODO: System class
           system 'touch mon_ordinateur'
           return
         else
