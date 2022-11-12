@@ -1,8 +1,8 @@
 class Game
-  require_relative 'outputer'
-  require_relative 'custom_system'
-  require_relative 'asciiartor'
-  require_relative 'students'
+  require_relative 'helpers/outputer'
+  require_relative 'helpers/custom_system'
+  require_relative 'helpers/asciiartor'
+  require_relative 'helpers/students'
   Dir["#{__dir__}/games/*.rb"].each { |file| require file }
 
   include CustomSystem

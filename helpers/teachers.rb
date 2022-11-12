@@ -2,8 +2,11 @@
 class Teachers
   require 'csv'
 
-  def init_all
+  def initialize
     fetch_teachers
+  end
+
+  def init_all
     create_teachers_passwords
     create_teachers_users
     create_tests
@@ -14,7 +17,7 @@ class Teachers
   # Gets teachers from the .csv file and converts the data to a hash.
   def fetch_teachers
     @teachers = []
-    CSV.foreach('data/teachers_info.csv', headers: true, col_sep: ',') do |row|
+    CSV.foreach("#{__dir__}/../data/teachers_info.csv", headers: true, col_sep: ',') do |row|
       @teachers << { name: row['name'], topic: row['topic'], password: row['password'],
                      test_path: row['test_path'] }
     end

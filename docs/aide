@@ -88,9 +88,15 @@ I / LES COMMANDES
 
 		* Si l'option "+r" est donnée, donne les droits de lecture du fichier.
 
+	-> echo : affiche sur l'écran le message passé en paramètre
+
+		* Utilisation: echo MON MESSAGE
+
+		* Il est possible d'écrire le texte dans un fichier au lieu de l'afficher en "redirigeant" la sortie, exemple: `echo mon message > mon_fichier.txt`
+
 	-> mail : envoie un email au destinataire spécifié en paramètre
 
-      * Après avoir terminé le message, appuyez sur control + 'D' pour quitter.
+		* Après avoir terminé le message, appuyez sur control + 'D' pour quitter.
 
 
 II / CE QU'IL EST POSSIBLE DE FAIRE
@@ -108,4 +114,4 @@ II / CE QU'IL EST POSSIBLE DE FAIRE
 	-> Vous trouverez dans la section SECURITE, votre dossier personnel. Vous disposerez ici les
 		sujets de vos contrôles. Votre dossier est protégé par un mot de passe, pour que les élèves
 		ne puissent pas les copier dans leur dossier personnel !
-		Vous aurez également la possibilité de changer votre mot de passe !
+		Vous aurez également la possibilité de changer votre mot de passe avec la commande echo !

@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 require 'dotenv'
-require_relative 'init_game'
+require_relative 'helpers/init_game'
 require_relative 'game'
 
 Dotenv.load

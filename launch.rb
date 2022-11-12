@@ -9,25 +9,6 @@ def reset_sonnerie
 	end
 end
 
-
-def change_mdp(abs_path)
-	Dir.foreach(abs_path + "ECOLE/SECURITE/UTILISATEURS") do |name|
-		next if name == '.' or name == '..'
-		path = abs_path + "ECOLE/SECURITE/MOTS_DE_PASSE/." + name.partition(" ").first + ".txt"
-		new_mdp_path = abs_path + "ECOLE/SECURITE/UTILISATEURS/" + name + "/" + "nouveau_mdp.txt"
-		if Dir.exist?(name)
-		f = File.open(new_mdp_path, "r")
-		new_mdp = f.gets
-		if new_mdp != nil
-			File.open(path, "w") do |f|
-			f.write(new_mdp)
-		end
-	end
-		end
-	end
-end
-
-
 def admin_check(abs_path)
 	print "Entrez le mot de passe pour la session admin".underline + " : "
 	input = STDIN.gets.chomp
@@ -60,16 +41,6 @@ def main_boucle(name, abs_path)
 			end
 			extension = file.partition(".").last
 		end
-
-		elsif input.partition(" ").first == "edit" and  File.exist?(file) == true and extension != "controle" and File.directory?(file) == false
-			if File.basename(Dir.getwd) == "MOTS_DE_PASSE"
-				puts "Erreur: Vous n'avez pas l'autorisation de modifier directement les mots de passe !"
-			elsif file == ".passwd"
-					puts "Vous n'avez pas l'autorisation."
-			else
-				system $EDITOR_PATH + "\"" + file + "\""
-			end
-			puts new_path
 
 		elsif input == "admin"
 			admin_check(abs_path)

@@ -31,9 +31,9 @@ class Students
   def create_students_timetable
     @students.each do |student|
       name = student[:name].split(' ').map(&:downcase).join('_')
-      student_path = "#{__dir__}/#{ENV['STUDENTS_PATH']}/#{name}"
+      student_path = "#{__dir__}/../#{ENV['STUDENTS_PATH']}/#{name}"
       system("mkdir -p #{student_path}")
-      system "cp #{__dir__}/docs/#{student[:tt_path]} #{student_path}/emploi_du_temps.txt"
+      system "cp #{__dir__}/../docs/#{student[:tt_path]} #{student_path}/emploi_du_temps.txt"
     end
   end
 
@@ -43,8 +43,8 @@ class Students
       next if student[:detention].to_i.zero?
 
       name = student[:name].split(' ').map(&:downcase).join('_')
-      file_path = "#{__dir__}/#{ENV['DETENTIONS_PATH']}/#{name}"
-      File.open(file_path, 'w') { |f| f.write(student[:detention]) }
+      file_path = "#{__dir__}/../#{ENV['DETENTIONS_PATH']}/#{name}"
+      File.open(file_path, 'w') { |f| f.puts(student[:detention]) }
     end
   end
 

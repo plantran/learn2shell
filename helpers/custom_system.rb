@@ -2,7 +2,7 @@
 module CustomSystem
   require 'pathname'
 
-  AUTHORIZED_COMMANDS = %w[ls edit mail chmod cp touch mkdir rm cat aide ecole pwd cd].freeze
+  AUTHORIZED_COMMANDS = %w[ls edit mail chmod cp touch mkdir rm cat aide ecole pwd cd echo].freeze
   MANDATORY_DIRS = %w[ADMIN ELEVES SECURITE VIE_SCOLAIRE MOTS_DE_PASSE UTILISATEURS].freeze
 
   # Displays fake prompt and gets user input.
@@ -16,7 +16,7 @@ module CustomSystem
   def execute_custom_command(cmd, *args)
     return output_error(cmd) unless AUTHORIZED_COMMANDS.include?(cmd.downcase)
 
-    args = cmd == 'cd' ? args : protected_args(args)
+    args = %w[cd edit].include?(cmd) ? args : protected_args(args)
     send("my_#{cmd}", args)
   end
 
@@ -44,7 +44,12 @@ module CustomSystem
   end
 
   # Calls custom `edit` function, opens text editor.
-  def my_edit(args); end
+  def my_edit(args)
+    path = args[0]
+    return if editing_forbidden_files(path)
+
+    system("#{ENV['EDITOR_PATH']} #{path}")
+  end
 
   # Custom mail
   def my_mail(args)
@@ -87,17 +92,25 @@ module CustomSystem
 
   # Calls custom `aide` command, which displays the help manual.
   def my_aide(_args)
-    system("less #{__dir__}/docs/aide")
+    system("less #{__dir__}/../docs/aide")
   end
 
   # Calls custom `ecole` command, which change the directory to the root path of the game.
   def my_ecole(_args)
-    Dir.chdir("#{__dir__}/ECOLE")
+    Dir.chdir("#{__dir__}/../ECOLE")
   end
 
   # Custom pwd
   def my_pwd(_args)
-    puts Dir.getwd.sub(__dir__, '')
+    puts Dir.getwd.sub(__dir__.sub('helpers', ''), '')
+  end
+
+  # Custom echo
+  def my_echo(args)
+    # If echo > nouveau_mdp.txt
+    return if handle_change_teacher_pw(args)
+
+    system("echo #{args.join(' ')}")
   end
 
   # Displays a custom error when the command is not found.
@@ -140,20 +153,23 @@ module CustomSystem
     true
   end
 
+  # Returns false if cd path is parent to game root folder.
   def accessing_parent_of_ecole(current_dir_name, path)
     return true if current_dir_name == 'ECOLE' && path == '..'
 
     false
   end
 
+  # Prevents user from accessing absolute paths directories.
   def accessing_absolute_path(path)
     return true if path.start_with?('/')
 
     false
   end
 
+  # Prevents user from accessing relative paths outside of game root folder.
   def accessing_outside_parent(path)
-    base_path = Pathname.new("#{__dir__}/ECOLE")
+    base_path = Pathname.new("#{__dir__}/../ECOLE")
     pn = Pathname.new(path)
     return false if base_path.expand_path == pn.expand_path
     return false if pn.expand_path.to_s.start_with?(base_path.expand_path.to_s)
@@ -188,10 +204,48 @@ module CustomSystem
 
   # Fetches password from the corresponding admin directory.
   def fetch_admin_password(path)
-    # TODO: Use admin class to fetch and update password.
-    f = File.open("#{__dir__}/ECOLE/SECURITE/MOTS_DE_PASSE/.#{path}.txt", 'r')
-    f.gets
+    f = File.open("#{__dir__}/../ECOLE/SECURITE/MOTS_DE_PASSE/.#{path}.txt", 'r')
+    f.gets.chomp
   rescue Errno::ENOENT
     nil
+  end
+
+  # Checks if the user is trying to edit "forbidden files".
+  def editing_forbidden_files(path)
+    if ['.passwd', 'nouveau_mdp.txt'].include?(path) || File.basename(Dir.getwd) == 'MOTS_DE_PASSE'
+      puts "Tu n'as pas le droit d'éditer des fichiers mots de passe.".red
+      return true
+    end
+
+    false
+  end
+
+  # Checks if the user is changing a teacher's password
+  def handle_change_teacher_pw(args)
+    return false unless args[1] == "'>'" && args[2] == "'nouveau_mdp.txt'"
+
+    parent_dir = File.expand_path('..', Dir.pwd).split('/').last
+    return false unless parent_dir == 'UTILISATEURS'
+
+    echo_and_update_password(args)
+  end
+
+  # Writes new teacher's password in file
+  def echo_and_update_password(args)
+    new_pass = args[0].gsub("'", '')
+    current_dir_name = Dir.pwd.split('/').last
+    File.open('nouveau_mdp.txt', 'w') { |f| f.puts(new_pass) }
+    update_new_teacher_password(current_dir_name, new_pass)
+  end
+
+  # Updates teachers's password
+  def update_new_teacher_password(current_dir_name, new_pass)
+    File.open("../../MOTS_DE_PASSE/.#{current_dir_name}.txt", 'w') do |f|
+      f.puts(new_pass)
+    end
+    puts 'Le mot de passe a été changé !'
+    true
+  rescue Errno::ENOENT
+    false
   end
 end
