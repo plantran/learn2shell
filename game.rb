@@ -5,15 +5,15 @@ class Game
   require_relative 'helpers/students'
   Dir["#{__dir__}/games/*.rb"].each { |file| require file }
 
-  include CustomSystem
   include Asciiartor
 
   def initialize
+    @cs = Helpers::CustomSystem.new
     welcome_new_user
-    Games::GameIntro.new(@name)
+    Games::GameIntro.new(@name, @cs)
     Students.new.init_for_one(@name)
-    Games::GamePart2.new(@name)
-    Games::FreeGame.new
+    Games::GamePart2.new(@name, @cs)
+    Games::FreeGame.new(@cs)
   end
 
   private
@@ -33,7 +33,7 @@ class Game
 
   def fetch_name
     loop do
-      @name = prompt_and_user_input(downcased: false)
+      @name = @cs.prompt_and_user_input(downcased: false)
       break unless @name.empty? || @name.split.size != 2
 
       puts "Tu dois rentrer tom prénom #{'ET'.underline} ton nom de famille."

@@ -1,10 +1,9 @@
 # Class and methods for the first part of the game (introduction).
 module Games
   class GameIntro
-    include CustomSystem
-
-    def initialize(name)
+    def initialize(name, custom_system)
       @name = name
+      @cs = custom_system
       welcome_screen
       first_part
       second_part
@@ -36,7 +35,7 @@ module Games
 
     def first_part_create_file_exo
       loop do
-        user_input = prompt_and_user_input
+        user_input = @cs.prompt_and_user_input
         if user_input == 'touch mon_ordinateur'
           system 'touch mon_ordinateur'
           return
@@ -62,7 +61,7 @@ module Games
 
     def first_part_edit_file_exo
       loop do
-        user_input = prompt_and_user_input
+        user_input = @cs.prompt_and_user_input
         if user_input == 'my_ip > mon_ordinateur'
           system("echo '205.7.107.19' > mon_ordinateur")
           return

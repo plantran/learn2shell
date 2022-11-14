@@ -1,9 +1,8 @@
 module Games
   class GamePart2
-    include CustomSystem
-
-    def initialize(name)
+    def initialize(name, custom_system)
       @name = name
+      @cs = custom_system
       @name_slugged = @name.split(' ').map(&:downcase).join('_')
       ls_game
       cd_game
@@ -17,7 +16,7 @@ module Games
     def ls_game
       output_ls_game_texts
       loop do
-        user_input = prompt_and_user_input
+        user_input = @cs.prompt_and_user_input
         if user_input == 'ls'
           system('ls -G')
           return
@@ -30,7 +29,7 @@ module Games
     def cd_game
       output_cd_game_texts
       loop do
-        user_input = prompt_and_user_input
+        user_input = @cs.prompt_and_user_input
         if user_input == 'cd eleves'
           Dir.chdir('ELEVES')
           return
@@ -43,7 +42,7 @@ module Games
     def cd_own_dir_game
       output_cd_own_dir_game_texts
       loop do
-        case prompt_and_user_input
+        case @cs.prompt_and_user_input
         when "cd #{@name_slugged}"
           Dir.chdir(@name_slugged)
           return
@@ -58,7 +57,7 @@ module Games
     def change_notes_game
       output_change_notes_game_texts
       loop do
-        case prompt_and_user_input
+        case @cs.prompt_and_user_input
         when 'edit bulletin.txt'
           system("#{ENV['EDITOR_PATH']} bulletin.txt")
         when 'ls'
@@ -75,7 +74,7 @@ module Games
     def finish
       output_finish_texts
       loop do
-        user_input = prompt_and_user_input
+        user_input = @cs.prompt_and_user_input
         return if user_input == 'ecole'
 
         puts "Tu dois entrer la commande #{'ecole'.underline} !"

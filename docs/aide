@@ -94,10 +94,6 @@ I / LES COMMANDES
 
 		* Il est possible d'écrire le texte dans un fichier au lieu de l'afficher en "redirigeant" la sortie, exemple: `echo mon message > mon_fichier.txt`
 
-	-> mail : envoie un email au destinataire spécifié en paramètre
-
-		* Après avoir terminé le message, appuyez sur control + 'D' pour quitter.
-
 
 II / CE QU'IL EST POSSIBLE DE FAIRE
 
