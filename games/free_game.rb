@@ -30,7 +30,7 @@ module Games
 
     def display_welcome_screen
       Asciiartor.access_authorized
-      puts "\t>> VOILA, MAINTENTANT TU AS LES BASES, À TOI DE JOUER ! <<\n".bold.blue
+      puts "\n\t>> VOILA, MAINTENTANT TU AS LES BASES, À TOI DE JOUER ! <<\n".bold.blue
       puts <<~TXT.yellow.italic
         \t-> Tape la commande "aide" pour voir la liste de toutes les commandes et voir tout ce que tu peux faire !
       TXT

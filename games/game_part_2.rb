@@ -83,13 +83,13 @@ module Games
 
     def output_cd_game_texts
       txt = <<~TXT.bold.blue
-        >> SUPER, COMME TU PEUX LE VOIR, IL Y A UN DOSSIER "ELEVES", UN DOSSIER "SECURITE", UN DOSSIER "ADMIN" ET UN DOSSIER "VIE_SCOLAIRE"
+        \n\t>> SUPER, COMME TU PEUX LE VOIR, IL Y A UN DOSSIER "ELEVES", UN DOSSIER "SECURITE", UN DOSSIER "ADMIN" ET UN DOSSIER "VIE_SCOLAIRE"
         ET SI ON COMMENÇAIT PAR CHANGER TES NOTES, CE SERAIT SYMPAS D'AVOIR DES 20/20 PARTOUT ! \
         COMMENCE PAR ALLER DANS LE DOSSIER #{'ELEVES'.underline} ! <<
       TXT
       txt += <<~TXT.yellow.italic
-        -> Pour se déplacer dans un dossier, utilise la commande #{'cd'.underline}, suivie d'un espace et du nom du dossier \
-        où tu veux te déplacer !
+        \n\t-> Pour se déplacer dans un dossier, utilise la commande #{'cd'.underline}, suivie d'un espace et du nom du dossier \
+        où tu veux te déplacer !\n
       TXT
       puts txt
     end
@@ -97,10 +97,10 @@ module Games
     def output_ls_game_texts
       Asciiartor.access_authorized
       txt = <<~TXT.bold.blue
-        \t>> BRAVO, TU AS RÉUSSI À T'INFILTRER DANS LE SYSTÈME INFORMATIQUE DE TON ÉCOLE !\n\tCOMMENÇONS PAR VOIR CE QU'IL Y A À L'INTÉRIEUR !<<
+        \n\t>> BRAVO, TU AS RÉUSSI À T'INFILTRER DANS LE SYSTÈME INFORMATIQUE DE TON ÉCOLE !\n\tCOMMENÇONS PAR VOIR CE QU'IL Y A À L'INTÉRIEUR !<<
       TXT
       txt += <<~TXT.yellow.italic
-        \t-> Pour voir tous les fichiers et dossiers qu'il y a dans le répertoire où tu es, tape la commande #{'ls'.underline}
+        \n\t-> Pour voir tous les fichiers et dossiers qu'il y a dans le répertoire où tu es, tape la commande #{'ls'.underline}
       TXT
       puts txt
     end
@@ -108,12 +108,11 @@ module Games
     def output_cd_own_dir_game_texts
       Asciiartor.access_authorized
       txt = <<~TXT.bold.blue
-        \t>> REGARDE TOUS LES ÉLÈVES QU'IL Y A ! CHERCHE TON DOSSIER AVEC TON NOM ET VA DEDANS ! <<
+        \n\t>> REGARDE TOUS LES ÉLÈVES QU'IL Y A ! CHERCHE TON DOSSIER AVEC TON NOM ET VA DEDANS ! <<
       TXT
       txt += <<~TXT.yellow.italic
-        \t-> Pour voir tous les dossiers qu'il y a utilise la commande #{'ls'.underline} et pour accéder à ce dossier, \
+        \n\t-> Pour voir tous les dossiers qu'il y a utilise la commande #{'ls'.underline} et pour accéder à ce dossier, \
         utilise la commande #{'cd'.underline} !
-
       TXT
       puts txt
     end
@@ -121,12 +120,12 @@ module Games
     def output_change_notes_game_texts
       Asciiartor.access_authorized
       txt = <<~TXT.bold.blue
-        \t>> TRES BIEN, MAINTENANT QUE TU ES DANS TON DOSSIER, REGARDE TOUS LES FICHIERS QU'IL Y A. \
-        CE SONT TOUTES LES MATIERES QUE TU AS, DEDANS, IL Y A TA NOTE. A TOI DE JOUER POUR MODIFIER CES \
-        NOTES ET METTRE CELLES QUE TU VEUX ! <<
+        \n\t>> TRES BIEN, MAINTENANT QUE TU ES DANS TON DOSSIER, REGARDE TOUS LES FICHIERS QU'IL Y A.
+        \tCE SONT TOUTES LES MATIERES QUE TU AS, DEDANS, IL Y A TA NOTE.
+        \tA TOI DE JOUER POUR MODIFIER CES NOTES ET METTRE CELLES QUE TU VEUX ! <<
       TXT
       txt += <<~TXT.yellow.italic
-        \t-> Pour voir tous les fichiers qu'il y a dans le dossier où tu es, tape la commande #{'ls'.underline}.
+        \n\t-> Pour voir tous les fichiers qu'il y a dans le dossier où tu es, tape la commande #{'ls'.underline}.
         \tPour modifier un fichier, tape la commande #{'edit'.underline} , un espace et le nom du fichier que tu veux modifier !
         \tQuand tu as terminé, entre la commande  #{'finish'.underline} !
       TXT
@@ -135,10 +134,10 @@ module Games
 
     def output_finish_texts
       txt = <<~TXT.bold.blue
-        \t>> GENIAL, J'ESPERE QUE TU T'ES MIS PLEIN DE BONNES NOTES ! IL EST MAINTENANT TEMPS DE PASSER AUX CHOSES SÉRIEUSES! <<
+        \n\t>> GENIAL, J'ESPERE QUE TU T'ES MIS PLEIN DE BONNES NOTES ! IL EST MAINTENANT TEMPS DE PASSER AUX CHOSES SÉRIEUSES! <<
       TXT
       txt += <<~TXT.yellow.italic
-        \tTape la commande #{'ecole'.underline} quand tu es prêt à continuer.
+        \n\tTape la commande #{'ecole'.underline} quand tu es prêt à continuer.
       TXT
       puts txt
     end

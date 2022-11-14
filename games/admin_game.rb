@@ -25,7 +25,7 @@ module Games
     def check_admin_password
       print("#{'Entrez le mot de passe pour la session admin'.underline}: ")
       user_input = $stdin.gets.chomp
-      if user_input == 'kbdr7#1'
+      if user_input == ENV['ADMIN_PASSWORD']
         true
       else
         puts 'Mauvais mot de passe.'

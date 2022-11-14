@@ -22,12 +22,12 @@ module Games
 
     def first_part
       txt = <<~TXT.blue
-        >> VITE ! ENREGISTRE TON ORDINATEUR POUR QUE LE SYSTEME NE DETECTE PAS QUE TU ES UN ÉLÈVE ! \
-        POUR CELA, TU DOIS CREER UN FICHIER QUI S'APPELLE #{'mon_ordinateur'.bold} <<\n
+        \n\t>> VITE ! ENREGISTRE TON ORDINATEUR POUR QUE LE SYSTEME NE DETECTE PAS QUE TU ES UN ÉLÈVE !
+        \tPOUR CELA, TU DOIS CREER UN FICHIER QUI S'APPELLE #{'mon_ordinateur'.bold} <<\n
       TXT
       txt += <<~TXT.yellow.italic
-        -> Pour créer un fichier, utilise la commande #{'touch'.underline}, un espace et le nom du fichier que tu veux créer.
-        -> Par exemple: #{'touch'.underline} mon_ordinateur
+        \t-> Pour créer un fichier, utilise la commande #{'touch'.underline}, un espace et le nom du fichier que tu veux créer.
+        \t   Par exemple: #{'touch'.underline} mon_ordinateur
       TXT
       puts txt
       first_part_create_file_exo
@@ -47,12 +47,12 @@ module Games
 
     def second_part
       Asciiartor.access_denied
-      txt = ">> IL FAUT MAINTENANT AJOUTER TON ADRESSE IP DANS CE FICHIER ! <<\n".blue.bold
+      txt = "\n\t>> IL FAUT MAINTENANT AJOUTER TON ADRESSE IP DANS CE FICHIER ! <<\n\n".blue.bold
       txt += <<~TXT.blue.italic
-        💡   -> Une adresse IP est l'adresse virtuelle de ton ordinateur. Elle est unique et chaque ordinateur en possède une différente !
+        \t 💡   Une adresse IP est l'adresse virtuelle de ton ordinateur. Elle est unique et chaque ordinateur en possède une différente !\n
       TXT
       txt += <<~TXT.yellow.italic
-        -> Pour ajouter ton adresse IP dans le fichier, tape la commande #{'my_ip > mon_ordinateur'.underline}, cela récupèrera ton \
+        \t-> Pour ajouter ton adresse IP dans le fichier, tape la commande #{'my_ip > mon_ordinateur'.underline}, cela récupèrera ton \
         adresse IP et la copiera directement dans le fichier grâce au caractère `>`!
       TXT
       puts txt
@@ -74,12 +74,13 @@ module Games
     def last_part
       Asciiartor.access_denied
       2.times do
-        puts ' ...'
+        puts "\t ..."
         sleep(1)
       end
       Asciiartor.access_authorized_welcome
       puts <<~TXT
-        Bonjour #{@name} et bienvenue dans le système de informatique de l'école.\n Appuie sur #{'ENTRÉE'.underline} pour continuer !
+        \tBonjour #{@name} et bienvenue dans le système de informatique de l'école.
+        \tAppuie sur #{'ENTRÉE'.underline} pour continuer !
       TXT
       loop { return if $stdin.gets == "\n" }
     end

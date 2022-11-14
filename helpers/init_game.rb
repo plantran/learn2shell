@@ -24,7 +24,7 @@ module InitGame
     return unless force_reset
 
     system('touch ECOLE/ADMIN/.passwd')
-    system("echo #{ENV['ADMIN_PASSWORD']} > ECOLE/ADMIN/.passwd")
+    File.open('ECOLE/ADMIN/.passwd', 'w') { |f| f.puts(ENV['ADMIN_PASSWORD']) }
     system('chmod 000 ECOLE/ADMIN/.passwd')
   end
   private_class_method :init_files_and_dirs
